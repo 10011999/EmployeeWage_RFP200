@@ -6,10 +6,14 @@ public class EmployeeWage {
         final int partTime = 2;
         System.out.println("Welcome Employees");
         int perHourWage = 20;
-        int empWorkingDays = 20;
+        int empWorkingDays = 2;
+        int empHrs = 0;
         int empWage = 0;
-        int monthSalary = 0;
-        for (int i = 1; i < empWorkingDays; i++) {
+        int maxHrsMonth = 100;
+        int totalWorkingDay = 0;
+        int totalEmpHrs = 0;
+        while (totalEmpHrs <= maxHrsMonth && totalWorkingDay < empWorkingDays){
+            totalWorkingDay++;
             int check = (int) Math.floor(Math.random() * 10) % 3;
             switch (check) {
                 case 1:
@@ -31,8 +35,10 @@ public class EmployeeWage {
                     System.out.println("Salary Amount: " + empWage);
                     break;
             }
-            monthSalary = empWage + monthSalary;
+            totalEmpHrs = empHrs + totalEmpHrs;
+            System.out.println("Day : " +totalWorkingDay+"Hrs: " +empHrs );
         }
-        System.out.println("month salary = " +monthSalary );
+        int totalEmpWage = totalEmpHrs * perHourWage;
+        System.out.println("month salary = " +totalEmpWage );
     }
 }
